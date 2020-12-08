@@ -1,5 +1,5 @@
 module Hoverfly
-  module Request_Handlers
+  module RequestHandlers
     class Base
       def self.call(http_method, url, params = {})
         new(http_method, url, params).call
