@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 1.20"
 
   spec.add_dependency "chargebee", "~> 2.8"
+  spec.add_dependency "rack", "~> 2.2"
 end

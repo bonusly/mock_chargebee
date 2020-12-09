@@ -1,20 +1,22 @@
 module Hoverfly
   module RequestHandlers
     class Base
-      def self.call(http_method, url, params = {})
-        new(http_method, url, params).call
+      extend Util::LoadFixtures
+
+      def self.call(http_method, parsed_path, params = {})
+        new(http_method, parsed_path, params).call
       end
 
-      def initialize(http_method, url, params)
+      def initialize(http_method, parsed_path, params)
         @http_method = http_method
-        @url = url
+        @parsed_path = parsed_path
         @params = params
-        @env = Hoverfly.default_env
+        @env = Hoverfly.environment
       end
 
       private
 
-      attr_reader :http_method, :url, :params, :env
+      attr_reader :http_method, :parsed_path, :params, :env
 
       delegate :repositories, to: :env
     end
