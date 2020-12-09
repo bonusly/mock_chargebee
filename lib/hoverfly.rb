@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "#{File.dirname(__FILE__)}/hoverfly/environment"
 require "#{File.dirname(__FILE__)}/hoverfly/errors"
 require "#{File.dirname(__FILE__)}/hoverfly/repositories"

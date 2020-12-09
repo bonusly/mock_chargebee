@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hoverfly
   class Repositories
     def self.add_repositories(*args)

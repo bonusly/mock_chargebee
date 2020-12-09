@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hoverfly
   class MissingRequestHandler < StandardError
     def initialize(resource_name)

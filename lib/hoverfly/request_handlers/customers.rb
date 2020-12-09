@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hoverfly
   module RequestHandlers
     class Customers < Base

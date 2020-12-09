@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hoverfly
   module Request
     def self.request(method, url, _env, params = {}, _headers = {})

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hoverfly
   class Environment
     API_VERSION = "v2"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Hoverfly
   module Util
     def self.parse_path_from_url(url)
