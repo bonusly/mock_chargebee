@@ -5,12 +5,20 @@ module Hoverfly
     def self.add_repositories(*args)
       args.each do |arg|
         define_method(arg) do
-          instance_variable_get("@#{arg}") || instance_variable_set("@#{arg}", {})
+          instance_variable_get("@#{arg}") || instance_variable_set("@#{arg}", RepoHash.new)
         end
       end
     end
 
     add_repositories :customers,
                      :subscriptions
+
+    class RepoHash < Hash
+      def fetch(*)
+        super
+      rescue KeyError => e
+        raise ChargeBee::InvalidRequestError.new(404, message: "#{e.key} not found")
+      end
+    end
   end
 end

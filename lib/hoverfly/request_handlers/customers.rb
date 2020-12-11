@@ -3,19 +3,29 @@
 module Hoverfly
   module RequestHandlers
     class Customers < Base
-      RESOURCE_ID_PREFIX = "cust"
+      load_fixtures :customer
 
       def call
-        send(http_method)
+        send("#{http_method}#{sub_command}")
       end
 
       private
 
-      def get
-        customer = repositories.customers.fetch(parsed_path.id)
+      def post
+        customer = Models::Customer.create(params)
         { customer: customer }
-      rescue KeyError
-        raise ChargeBee::InvalidRequestError.new(404, message: "#{parsed_path.id} not found")
+      end
+
+      def get
+        customer = repositories.customers.fetch(id)
+        { customer: customer }
+      end
+
+      def post_subscriptions
+        customer = repositories.customers.fetch(id)
+        subscription = Models::Subscription.create_for_customer(customer, params)
+
+        { subscription: subscription, customer: customer }
       end
     end
   end

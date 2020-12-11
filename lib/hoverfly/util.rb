@@ -10,7 +10,11 @@ module Hoverfly
       Rack::Utils.parse_nested_query(params.to_a.map { |p| p.join("=") }.join("&"))
     end
 
-    ParsedPath = Struct.new(:resource, :id, :sub_command)
+    ParsedPath = Struct.new(:resource, :id, :rest) do
+      def sub_command
+        rest.nil? ? nil : "_#{rest}"
+      end
+    end
 
     def self.generate_id(resource_prefix)
       "__TEST__#{resource_prefix}__#{SecureRandom.uuid}"
@@ -19,7 +23,7 @@ module Hoverfly
     module LoadFixtures
       def load_fixtures(*args)
         args.each do |arg|
-          define_method("#{arg}_fixture") do
+          define_singleton_method("#{arg}_fixture") do
             instance_variable_get("@#{arg}_fixture") ||
               instance_variable_set("@#{arg}_fixture", JSON.parse(File.read("#{File.dirname(__FILE__)}/fixtures/#{arg}.json")))
           end

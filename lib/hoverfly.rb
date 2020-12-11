@@ -8,6 +8,7 @@ require "#{File.dirname(__FILE__)}/hoverfly/util"
 
 Dir.glob("#{File.dirname(__FILE__)}/hoverfly/request_handlers/**/*.rb").sort.each(&method(:require))
 Dir.glob("#{File.dirname(__FILE__)}/hoverfly/validations/**/*.rb").sort.each(&method(:require))
+Dir.glob("#{File.dirname(__FILE__)}/hoverfly/models/**/*.rb").sort.each(&method(:require))
 
 module Hoverfly
   @@state = :ready
