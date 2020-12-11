@@ -7,6 +7,10 @@ module Hoverfly
 
       load_fixtures :customer
 
+      def self.find(id)
+        repositories.customers.fetch(id)
+      end
+
       def self.create(params)
         params["id"] ||= unique_id
         customer = customer_fixture.merge(params)

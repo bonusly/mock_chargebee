@@ -18,7 +18,6 @@ module Hoverfly
 
       attr_reader :http_method, :parsed_path, :params, :env
 
-      delegate :repositories, to: :env
       delegate :id, :sub_command, to: :parsed_path
 
       def self.load_fixtures(*args)

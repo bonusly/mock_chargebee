@@ -7,6 +7,10 @@ module Hoverfly
 
       load_fixtures :subscription
 
+      def self.find(id)
+        repositories.subscriptions.fetch(id)
+      end
+
       def self.create(params)
         Validations::Subscriptions::CreateParams.validate(params)
         params["id"] ||= unique_id
@@ -23,19 +27,35 @@ module Hoverfly
         [subscription, customer]
       end
 
+      def self.create_for_customer(customer, params)
+        params["id"] ||= unique_id
+        subscription = subscription_fixture.merge(params)
+        subscription["customer_id"] = customer["id"]
+
+        repositories.subscriptions.store(subscription["id"], subscription)
+
+        subscription
+      end
+
       def self.update(id, params)
-        subscription = repositories.subscriptions.fetch(id)
+        subscription = find(id)
         subscription.merge!(params)
         repositories.subscriptions.store(subscription["id"], subscription)
 
         subscription
       end
 
-      def self.create_for_customer(customer, params)
-        params["id"] ||= unique_id
-        subscription = subscription_fixture.merge(params)
-        subscription["customer_id"] = customer["id"]
+      def self.cancel(id, params)
+        subscription = find(id)
+        subscription.merge!(params.merge({ "status" => "cancelled", "canceled_at" => Time.now.to_i }))
+        repositories.subscriptions.store(subscription["id"], subscription)
 
+        subscription
+      end
+
+      def self.reactivate(id, params)
+        subscription = find(id)
+        subscription.merge!(params.merge({ "status" => "active", "started_at" => Time.now.to_i }))
         repositories.subscriptions.store(subscription["id"], subscription)
 
         subscription

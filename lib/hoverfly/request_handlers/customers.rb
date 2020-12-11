@@ -17,12 +17,12 @@ module Hoverfly
       end
 
       def get
-        customer = repositories.customers.fetch(id)
+        customer = Models::Customer.find(id)
         { customer: customer }
       end
 
       def post_subscriptions
-        customer = repositories.customers.fetch(id)
+        customer = Models::Customer.find(id)
         subscription = Models::Subscription.create_for_customer(customer, params)
 
         { subscription: subscription, customer: customer }
