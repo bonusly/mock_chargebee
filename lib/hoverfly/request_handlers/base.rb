@@ -3,8 +3,6 @@
 module Hoverfly
   module RequestHandlers
     class Base
-      extend Util::LoadFixtures
-
       def self.call(http_method, parsed_path, params = {})
         new(http_method, parsed_path, params).call
       end
@@ -22,6 +20,15 @@ module Hoverfly
 
       delegate :repositories, to: :env
       delegate :id, :sub_command, to: :parsed_path
+
+      def self.load_fixtures(*args)
+        args.each do |arg|
+          define_method("#{arg}_fixture") do
+            instance_variable_get("@#{arg}_fixture") ||
+              instance_variable_set("@#{arg}_fixture", JSON.parse(File.read("#{File.dirname(__FILE__)}/../fixtures/#{arg}.json")))
+          end
+        end
+      end
     end
   end
 end

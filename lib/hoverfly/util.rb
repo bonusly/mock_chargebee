@@ -19,16 +19,5 @@ module Hoverfly
     def self.generate_id(resource_prefix)
       "__TEST__#{resource_prefix}__#{SecureRandom.uuid}"
     end
-
-    module LoadFixtures
-      def load_fixtures(*args)
-        args.each do |arg|
-          define_singleton_method("#{arg}_fixture") do
-            instance_variable_get("@#{arg}_fixture") ||
-              instance_variable_set("@#{arg}_fixture", JSON.parse(File.read("#{File.dirname(__FILE__)}/fixtures/#{arg}.json")))
-          end
-        end
-      end
-    end
   end
 end
