@@ -14,6 +14,10 @@ module Hoverfly
         @env = Hoverfly.environment
       end
 
+      def call
+        send("#{http_method}#{sub_command}")
+      end
+
       private
 
       attr_reader :http_method, :parsed_path, :params, :env

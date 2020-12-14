@@ -3,12 +3,6 @@
 module Hoverfly
   module RequestHandlers
     class Customers < Base
-      load_fixtures :customer
-
-      def call
-        send("#{http_method}#{sub_command}")
-      end
-
       private
 
       def post

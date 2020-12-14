@@ -7,10 +7,6 @@ module Hoverfly
                     :subscription_cancel_response,
                     :subscription_reactivate_response
 
-      def call
-        send("#{http_method}#{sub_command}")
-      end
-
       private
 
       def post

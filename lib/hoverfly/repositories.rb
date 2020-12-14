@@ -11,7 +11,8 @@ module Hoverfly
     end
 
     add_repositories :customers,
-                     :subscriptions
+                     :subscriptions,
+                     :coupons
 
     class RepoHash < Hash
       def fetch(*)

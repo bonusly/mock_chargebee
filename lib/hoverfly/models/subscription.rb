@@ -18,6 +18,9 @@ module Hoverfly
         customer_params = params.delete("customer")
         customer = Customer.create(customer_params)
 
+        coupon_ids = params.delete("coupon_ids")
+        params["coupons"] = Services::CouponsForSubscription.new(coupon_ids).call
+
         params["customer_id"] = customer["id"]
 
         subscription = subscription_fixture.merge(params)
