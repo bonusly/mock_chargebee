@@ -11,7 +11,7 @@ module Hoverfly
 
       fixture.merge!(event_attributes)
       fixture["content"].merge!(content_attributes)
-      fixture
+      fixture.to_json
     end
 
     private
