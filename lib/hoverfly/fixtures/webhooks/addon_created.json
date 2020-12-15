@@ -1,0 +1,32 @@
+{
+  "id": "ev_16CHTnSAx18XW55o",
+  "occurred_at": 1600439999,
+  "source": "admin_console",
+  "user": "user@example.com",
+  "object": "event",
+  "api_version": "v2",
+  "content": {
+    "addon": {
+      "id": "rewards-prepayment",
+      "name": "Rewards Prepayment",
+      "pricing_model": "per_unit",
+      "charge_type": "non_recurring",
+      "price": 100,
+      "period_unit": "not_applicable",
+      "unit": "dollar prepaid",
+      "status": "active",
+      "enabled_in_portal": true,
+      "is_shippable": false,
+      "updated_at": 1600439999,
+      "resource_version": 1600439999650,
+      "object": "addon",
+      "currency_code": "USD",
+      "taxable": true,
+      "type": "quantity",
+      "show_description_in_invoices": false,
+      "show_description_in_quotes": false
+    }
+  },
+  "event_type": "addon_created",
+  "webhook_status": "not_configured"
+}

@@ -1,0 +1,37 @@
+{
+  "api_version": "v2",
+  "content": {
+    "transaction": {
+      "amount": 1000,
+      "amount_capturable": 1000,
+      "authorization_reason": "blocking_funds",
+      "base_currency_code": "USD",
+      "currency_code": "USD",
+      "customer_id": "5SK0b4wDR6XfDML1A",
+      "date": 1539600584,
+      "deleted": false,
+      "exchange_rate": 1,
+      "fraud_reason": "Payment complete.",
+      "gateway": "stripe",
+      "gateway_account_id": "gw_5SK0b4zCR6Xf0ix4",
+      "id": "txn_5SK0b4wDR6XfE8E1F",
+      "id_at_gateway": "ch_1DLTds2moDuOTz4l3VDnrUd9",
+      "linked_payments": [],
+      "masked_card_number": "************4242",
+      "object": "transaction",
+      "payment_method": "card",
+      "payment_source_id": "pm_5SK0b4wDR6XfE6d1C",
+      "resource_version": 1456829403000,
+      "status": "success",
+      "type": "authorization",
+      "updated_at": 1456829403
+    }
+  },
+  "event_type": "authorization_succeeded",
+  "id": "ev_5SK0b4wDR6XfENP1G",
+  "object": "event",
+  "occurred_at": 1456829403,
+  "source": "api",
+  "user": "full_access_key_v1",
+  "webhook_status": "not_configured"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ev_169yOTSAx20HH5s3",
+  "occurred_at": 1600440206,
+  "source": "admin_console",
+  "user": "user@example.com",
+  "object": "event",
+  "api_version": "v2",
+  "content": {
+    "addon": {
+      "id": "setup-and-training-fee",
+      "name": "Setup and Training Fee",
+      "invoice_name": "Setup and Training Fee",
+      "pricing_model": "flat_fee",
+      "charge_type": "non_recurring",
+      "price": 50000,
+      "period_unit": "not_applicable",
+      "status": "active",
+      "enabled_in_portal": true,
+      "is_shippable": false,
+      "updated_at": 1600440206,
+      "resource_version": 1600440206218,
+      "object": "addon",
+      "currency_code": "USD",
+      "taxable": true,
+      "type": "on_off",
+      "show_description_in_invoices": false,
+      "show_description_in_quotes": false
+    }
+  },
+  "event_type": "addon_updated",
+  "webhook_status": "not_configured"
+}

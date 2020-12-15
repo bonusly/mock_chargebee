@@ -1,0 +1,29 @@
+{
+  "id": "ev_XpbG6hnQqGFm2n3O",
+  "occurred_at": 1341085213,
+  "source": "api",
+  "user": "full_access_key_v1",
+  "object": "event",
+  "api_version": "v2",
+  "content": {
+    "addon": {
+      "id": "support",
+      "name": "Support",
+      "description": "This is addon added when support is needed",
+      "type": "quantity",
+      "charge_type": "recurring",
+      "price": 1000,
+      "period": 1,
+      "period_unit": "month",
+      "status": "deleted",
+      "enabled_in_portal": true,
+      "updated_at": 1341085213,
+      "resource_version": 1341085213000,
+      "object": "addon",
+      "currency_code": "USD",
+      "taxable": true
+    }
+  },
+  "event_type": "addon_deleted",
+  "webhook_status": "not_configured"
+}

@@ -5,6 +5,7 @@ require "#{File.dirname(__FILE__)}/hoverfly/errors"
 require "#{File.dirname(__FILE__)}/hoverfly/repositories"
 require "#{File.dirname(__FILE__)}/hoverfly/request"
 require "#{File.dirname(__FILE__)}/hoverfly/util"
+require "#{File.dirname(__FILE__)}/hoverfly/webhook"
 
 Dir.glob("#{File.dirname(__FILE__)}/hoverfly/request_handlers/**/*.rb").sort.each(&method(:require))
 Dir.glob("#{File.dirname(__FILE__)}/hoverfly/validations/**/*.rb").sort.each(&method(:require))
@@ -30,6 +31,10 @@ module Hoverfly
     ChargeBee::Rest.define_singleton_method(:request, &@@original_chargebee_request)
     @@original_chargebee_request = nil
     @@state = :ready
+  end
+
+  def self.mock_webhook_payload_for(event_type, event_attributes: {}, content_attributes: {})
+    Webhook.new(event_type, event_attributes, content_attributes).call
   end
 
   def self.environment

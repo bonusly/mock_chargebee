@@ -1,0 +1,1 @@
+{"api_version":"v2","content":{"quote":{"id":"1","customer_id":"XpbSswcRp38svj5","status":"open","operation_type":"create_subscription_for_customer","price_type":"tax_exclusive","valid_till":1581272999,"date":1580375736,"total_payable":1800,"charge_on_acceptance":1800,"updated_at":1580375736,"resource_version":1580375736112,"object":"quote","currency_code":"USD"}}}

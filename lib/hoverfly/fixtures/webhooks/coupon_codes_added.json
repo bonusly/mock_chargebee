@@ -1,0 +1,1 @@
+{"id":"ev_XpbG6hnQqGFlll3D","occurred_at":1341085212,"source":"api","user":"full_access_key_v1","object":"event","api_version":"v2","content":{"coupon_set":{"id":"cs_uiuasd","coupon_id":"beta","name":"cs_uiuasd","object":"coupon_set","total_count":2,"redeemed_count":0,"archived_count":0}},"event_type":"coupon_codes_added","webhook_status":"not_configured"}
