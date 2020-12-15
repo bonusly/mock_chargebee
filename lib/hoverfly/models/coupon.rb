@@ -12,7 +12,7 @@ module Hoverfly
       end
 
       def self.create(params)
-        Validations::Coupons::CreateParams.validate(params)
+        Validations::Coupons::CreateParams.validate_required(params)
 
         params["id"] ||= unique_id
         coupon = coupon_fixture.merge(params)

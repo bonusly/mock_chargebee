@@ -12,7 +12,7 @@ module Hoverfly
       end
 
       def self.create(params)
-        Validations::Subscriptions::CreateParams.validate(params)
+        Validations::Subscriptions::CreateParams.validate_required(params)
         params["id"] ||= unique_id
 
         customer_params = params.delete("customer")
