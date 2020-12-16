@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "chargebee", "~> 2.8"
   spec.add_dependency "rack", "~> 2.2"
+  spec.add_dependency "activesupport", "~> 5.0"
 end

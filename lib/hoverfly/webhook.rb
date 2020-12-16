@@ -9,9 +9,10 @@ module Hoverfly
     def call
       Validations::Webhooks::EventAttributes.validate_allowed(event_attributes)
 
-      fixture.merge!(event_attributes)
-      fixture["content"].merge!(content_attributes)
-      fixture.to_json
+      event_attributes.merge!("content" => content_attributes)
+      response = fixture.deep_merge(event_attributes)
+
+      response.to_json
     end
 
     private
