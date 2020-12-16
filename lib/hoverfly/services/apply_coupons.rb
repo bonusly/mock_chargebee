@@ -3,7 +3,7 @@
 module Hoverfly
   module Services
     class CouponsForSubscription
-      def initialize(coupon_ids = [])
+      def initialize(coupon_ids)
         @coupon_ids = coupon_ids
       end
 
@@ -22,7 +22,9 @@ module Hoverfly
 
       private
 
-      attr_reader :coupon_ids
+      def coupon_ids
+        @coupon_ids || []
+      end
 
       def coupons
         coupon_ids.values.map { |id| Models::Coupon.find(id) }
