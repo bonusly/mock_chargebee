@@ -22,16 +22,26 @@ module Hoverfly
     end
 
     def self.deep_transform_values!(hash)
-      hash.reduce({}) do |hash, pair|
+      hash.each_with_object({}) do |pair, hash|
         key, val = pair
-        val = deep_transform_values!(val) if val.is_a?(Hash)
-        val = true if val == "true"
-        val = false if val == "false"
-        val = 0 if val == "0"
-        val = val.to_f if key.match?(/decimal/)
-        val = val.to_i if (val.to_i != 0 && !key.match?(/id/) && !key.match?(/decimal/))
-        hash.store(key, val)
-        hash
+
+        next hash.store(key, val) if key.match?(/id/)
+
+        case val
+        when Hash
+          transformed_val = deep_transform_values!(val)
+          hash.store(key, transformed_val)
+        when "true"
+          hash.store(key, true)
+        when "false"
+          hash.store(key, false)
+        when /^\d+\.\d+$/
+          hash.store(key, val.to_f)
+        when /^\d+$/
+          hash.store(key, val.to_i)
+        else
+          hash.store(key, val)
+        end
       end
     end
   end
