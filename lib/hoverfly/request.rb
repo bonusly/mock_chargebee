@@ -7,7 +7,9 @@ module Hoverfly
       parsed_params = Util.parse_params(params)
 
       handler = RequestHandlers.const_get(parsed_path.resource.capitalize)
-      handler.call(method, parsed_path, parsed_params)
+      resp = handler.call(method, parsed_path, parsed_params)
+      resp = ChargeBee::Util.symbolize_keys(resp)
+      resp
     rescue NameError => e
       raise Hoverfly::MissingRequestHandler parsed_path.resource if e.message.match?(/uninitialized constant #{parsed_path.resource.capitalize}/)
 
