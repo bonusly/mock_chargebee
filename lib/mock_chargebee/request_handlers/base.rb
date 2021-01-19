@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module RequestHandlers
     class Base
       def self.call(http_method, parsed_path, params = {})
@@ -11,7 +11,7 @@ module Hoverfly
         @http_method = http_method
         @parsed_path = parsed_path
         @params = params
-        @env = Hoverfly.environment
+        @env = MockChargebee.environment
       end
 
       def call

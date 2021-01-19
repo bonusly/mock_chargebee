@@ -1,4 +1,4 @@
-module Hoverfly
+module MockChargebee
   module Validations
     module Webhooks
       class EventAttributes

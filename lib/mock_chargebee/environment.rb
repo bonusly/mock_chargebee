@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   class Environment
     API_VERSION = "v2"
 

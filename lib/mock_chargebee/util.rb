@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module Util
     def self.parse_path_from_url(url)
       ParsedPath.new(*url.delete_prefix("/").split("/"))

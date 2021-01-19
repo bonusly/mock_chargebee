@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module Services
     class CouponsForSubscription
       def initialize(coupon_ids)

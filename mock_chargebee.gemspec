@@ -1,15 +1,15 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "hoverfly/version"
+require "mock_chargebee/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "hoverfly"
-  spec.version = Hoverfly::VERSION
+  spec.name = "mock_chargebee"
+  spec.version = MockChargebee::VERSION
   spec.authors = ["Josh Cass"]
   spec.email = ["josh@bonus.ly"]
   spec.summary = "A Ruby mocking library for Chargebee"
-  spec.description = "Hoverfly is a drop in mocking library for testing with Chargebee."
-  spec.homepage = "https://github.com/bonusly/hoverfly"
+  spec.description = "MockChargebee is a drop in mocking library for testing with Chargebee."
+  spec.homepage = "https://github.com/bonusly/mock_chargebee"
   spec.license = "MIT"
 
   spec.files = `git ls-files -z`.split("\x0")

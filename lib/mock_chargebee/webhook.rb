@@ -1,4 +1,4 @@
-module Hoverfly
+module MockChargebee
   class Webhook
     def initialize(event_type, event_attributes = {}, content_attributes = {})
       @event_type = event_type

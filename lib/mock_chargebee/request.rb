@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module Request
     def self.request(method, url, _env, params = {}, _headers = {})
       parsed_path = Util.parse_path_from_url(url)
@@ -11,7 +11,7 @@ module Hoverfly
       resp = ChargeBee::Util.symbolize_keys(resp)
       resp
     rescue NameError => e
-      raise Hoverfly::MissingRequestHandler parsed_path.resource if e.message.match?(/uninitialized constant #{parsed_path.resource.capitalize}/)
+      raise MockChargebee::MissingRequestHandler parsed_path.resource if e.message.match?(/uninitialized constant #{parsed_path.resource.capitalize}/)
 
       raise e
     end

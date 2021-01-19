@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module Models
     class Coupon < Base
       RESOURCE_ID_PREFIX = "coup"

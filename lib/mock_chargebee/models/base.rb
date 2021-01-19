@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module Models
     class Base
       def self.repositories
-        Hoverfly.environment.repositories
+        MockChargebee.environment.repositories
       end
 
       def self.unique_id

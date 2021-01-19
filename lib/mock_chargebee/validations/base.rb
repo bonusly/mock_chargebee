@@ -1,4 +1,4 @@
-module Hoverfly
+module MockChargebee
   module Validations
     class Base
       def self.validate_required(params)

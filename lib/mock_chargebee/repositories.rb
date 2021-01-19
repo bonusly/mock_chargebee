@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   class Repositories
     def self.add_repositories(*args)
       args.each do |arg|

@@ -1,2 +1,2 @@
-# hoverfly
-Hoverfly is a drop in mocking library for testing with Chargebee.
+# mock_chargebee
+MockChargebee is a drop in mocking library for testing with Chargebee.

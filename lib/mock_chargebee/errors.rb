@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   class MissingRequestHandler < StandardError
     def initialize(resource_name)
-      super("Hoeverfly::RequestHandlers::#{resource_name.capitalize} not found. Expected /request_handlers/#{resource_name}.rb to define it.")
+      super("MockChargebee::RequestHandlers::#{resource_name.capitalize} not found. Expected /request_handlers/#{resource_name}.rb to define it.")
     end
   end
 

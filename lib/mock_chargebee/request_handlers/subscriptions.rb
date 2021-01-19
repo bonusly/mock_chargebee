@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hoverfly
+module MockChargebee
   module RequestHandlers
     class Subscriptions < Base
       load_fixtures :subscription_create_response,
