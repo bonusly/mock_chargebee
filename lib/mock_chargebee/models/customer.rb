@@ -18,6 +18,14 @@ module MockChargebee
 
         customer
       end
+
+      def self.update(id, params)
+        customer = find(id)
+        customer.merge!(params)
+        repositories.customers.store(customer["id"], customer)
+
+        customer
+      end
     end
   end
 end

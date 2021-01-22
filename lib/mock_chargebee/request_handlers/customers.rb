@@ -21,6 +21,12 @@ module MockChargebee
 
         { subscription: subscription, customer: customer }
       end
+
+      def post_update_billing_info
+        customer = Models::Customer.update(id, params)
+
+        { customer: customer }
+      end
     end
   end
 end
