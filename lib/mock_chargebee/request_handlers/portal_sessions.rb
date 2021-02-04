@@ -2,7 +2,7 @@
 
 module MockChargebee
   module RequestHandlers
-    class PortalSession < Base
+    class PortalSessions < Base
       private
 
       def post
