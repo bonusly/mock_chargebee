@@ -6,12 +6,13 @@ module MockChargebee
       parsed_path = Util.parse_path_from_url(url)
       parsed_params = Util.parse_params(params)
 
-      handler = RequestHandlers.const_get(parsed_path.resource.capitalize)
+      handler = RequestHandlers.const_get(parsed_path.resource.split('_').map(&:capitalize).join(''))
       resp = handler.call(method, parsed_path, parsed_params)
-      resp = ChargeBee::Util.symbolize_keys(resp)
-      resp
+      ChargeBee::Util.symbolize_keys(resp)
     rescue NameError => e
-      raise MockChargebee::MissingRequestHandler parsed_path.resource if e.message.match?(/uninitialized constant #{parsed_path.resource.capitalize}/)
+      if e.message.match?(/uninitialized constant #{parsed_path.resource.capitalize}/)
+        raise MockChargebee::MissingRequestHandler parsed_path.resource
+      end
 
       raise e
     end

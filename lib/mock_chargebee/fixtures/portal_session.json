@@ -1,0 +1,20 @@
+{
+  "access_url": "https://yourapp.chargebeeportal.com/portal/access/__test__cdBbQgJg5fPSTw9qBPDIaQiVEEx0Gsrrc",
+  "created_at": 1517505973,
+  "customer_id": "__test__KyVnHhSBWm8kA2sT",
+  "expires_at": 1517509573,
+  "id": "portal___test__KyVnHhSBWm8l82sV",
+  "linked_customers": [
+    {
+      "customer_id": "__test__KyVnHhSBWm8kA2sT",
+      "has_active_subscription": false,
+      "has_billing_address": false,
+      "has_payment_method": false,
+      "object": "linked_customer"
+    }
+  ],
+  "object": "portal_session",
+  "redirect_url": "https://yourdomain.com/users/3490343",
+  "status": "created",
+  "token": "__test__cdBbQgJg5fPSTw9qBPDIaQiVEEx0Gsrrc"
+}
