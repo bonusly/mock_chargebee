@@ -13,7 +13,8 @@ module MockChargebee
     add_repositories :customers,
                      :subscriptions,
                      :coupons,
-                     :portal_sessions
+                     :portal_sessions,
+                     :plans
 
     class RepoHash < Hash
       def fetch(*)
