@@ -3,7 +3,7 @@
 module MockChargebee
   module Models
     class Customer < Base
-      RESOURCE_ID_PREFIX = "cust"
+      RESOURCE_ID_PREFIX = 'cust'
 
       load_fixtures :customer
 
@@ -12,9 +12,11 @@ module MockChargebee
       end
 
       def self.create(params)
-        params["id"] ||= unique_id
+        already_exists!(id) if already_exists?(params['id'])
+
+        params['id'] ||= unique_id
         customer = customer_fixture.merge(params)
-        repositories.customers.store(customer["id"], customer)
+        repositories.customers.store(customer['id'], customer)
 
         customer
       end
@@ -22,9 +24,15 @@ module MockChargebee
       def self.update(id, params)
         customer = find(id)
         customer.merge!(params)
-        repositories.customers.store(customer["id"], customer)
+        repositories.customers.store(customer['id'], customer)
 
         customer
+      end
+
+      def self.already_exists?(id)
+        return false if id.nil?
+
+        repositories.customers[id].present?
       end
     end
   end
