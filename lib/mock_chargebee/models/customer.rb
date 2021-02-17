@@ -12,7 +12,7 @@ module MockChargebee
       end
 
       def self.create(params)
-        already_exists!(id) if already_exists?(params['id'])
+        already_exists!(params['id']) if already_exists?(params['id'])
 
         params['id'] ||= unique_id
         customer = customer_fixture.merge(params)
@@ -25,6 +25,13 @@ module MockChargebee
         customer = find(id)
         customer.merge!(params)
         repositories.customers.store(customer['id'], customer)
+
+        customer
+      end
+
+      def self.delete(id)
+        customer = find(id)
+        repositories.customers.delete(id)
 
         customer
       end

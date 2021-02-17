@@ -15,6 +15,12 @@ module MockChargebee
         { customer: customer }
       end
 
+      def post_delete
+        customer = Models::Customer.delete(id)
+
+        { customer: customer }
+      end
+
       def post_subscriptions
         customer = Models::Customer.find(id)
         subscription = Models::Subscription.create_for_customer(customer, params)
