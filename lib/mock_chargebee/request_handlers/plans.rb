@@ -17,7 +17,6 @@ module MockChargebee
 
       def get
         plan = Models::Plan.find(id)
-        binding.pry
 
         { plan: plan }
       end
